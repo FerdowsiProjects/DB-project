@@ -1,22 +1,25 @@
-// phase3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+//pahse3-code
 #include <iostream>
+#include <mysql_driver.h>
+#include <mysql_connection.h>
 
-int main()
-{
-    std::cout << "Hello World!\n";
-}
+using namespace std;
+using namespace sql;
 
-// test
+int main() {
+    string server = "localhost";
+    string username = "root";
+    string password = "1234";
+    string database = "project";
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+    Driver* driver = get_driver_instance();
+    Connection* connection = driver->connect(localhost, root, 1234);
+    connection->setSchema(project);
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//elaheh_rezapanah
+
+//fatemeh_aalami
+
+//somayeh_ghorbani
+
+//zahra_rostami
