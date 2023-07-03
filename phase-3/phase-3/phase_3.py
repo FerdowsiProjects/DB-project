@@ -298,6 +298,17 @@ result = mycursor.fetchall()
 for row in result:
     print(row)
 
+# ex_exam time
+table_name1 = "examination_schedule"
+s_num = input("ٍEnter Student number: ")
+c_name2 = input("ٍEnter course: ")
+
+select_query = f"SELECT examination_schedule.exam_day,examination_schedule.exam_time,examination_schedule.class,examination_schedule.seat_number FROM `{table_name1}` where  examination_schedule.student_student_number = '{s_num}' and examination_schedule.course_ename = '{c_name2}'"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
 
 #/somayeh_ghorbani
 
