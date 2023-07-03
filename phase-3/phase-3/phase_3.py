@@ -121,6 +121,19 @@ while True:
     for row in result:
         print(row)
 
+#------------------------------------------------
+
+#information student
+
+s_num = input("enter student number : ")
+select_query = f"SELECT * FROM student WHERE student.student_number = {s_num}"
+
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
+
 
 #/zahra_rostami
 
