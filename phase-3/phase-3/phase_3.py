@@ -262,6 +262,29 @@ END
 """
 mycursor.execute(trigger_query)
 
+# class schedule
+table_name = "class_schedule"
+s_numc = input("ٍEnter Student number: ")
+
+select_query = f"SELECT class_schedule.course_cname,class_schedule.professor_cname,class_schedule.class_number,class_schedule.class_day,class_schedule.class_time FROM `{table_name}` where class_schedule.student_student_number = '{s_numc}'"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
+
+#course
+table_name1 = "course"
+table_name2 = "class_schedule"
+c_name = input("ٍEnter Course: ")
+
+select_query = f"SELECT course.course_code,course.course_name,course.professor_coname,course.faculty,class_schedule.class_number FROM `{table_name1}`,`{table_name2}` where course.course_name = '{c_name}' and class_schedule.course_cname = '{c_name}'"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
+
 
 #/somayeh_ghorbani
 
