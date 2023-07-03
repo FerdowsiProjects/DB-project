@@ -261,6 +261,17 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 
+#extra2
+
+select_query = "SELECT examination_schedule.course_ename,examination_schedule.exam_day from examination_schedule where examination_schedule.exam_day < 10 "
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+
+for row in result:
+  print(row)
+
+
 
 
 #/elaheh_rezapanah
