@@ -251,6 +251,18 @@ insert_query = f"UPDATE food_reservation SET reserved = '0' WHERE food_reservati
 print("food: " + req2 + " deleted.")
 
 
+#extra1
+
+select_query = "SELECT student.student_name,student.student_number,student.address from student where student.address <> 'mshd'"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+
+for row in result:
+  print(row)
+
+
+
 #/elaheh_rezapanah
 
 # view4
