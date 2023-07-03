@@ -162,6 +162,8 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 
+#...........................................
+
 #view5
 
 view_query = "CREATE VIEW view5_p AS SELECT student.student_number,student.student_name FROM student,select_unit WHERE select_unit.passed_course < 12 AND student.student_number = select_unit.student_student_number"
@@ -174,6 +176,8 @@ result = mycursor.fetchall()
 
 for row in result:
  print(row)
+
+#...........................................
 
 #trigger2
 
@@ -188,6 +192,7 @@ END
 """
 mycursor.execute(trigger_query)
 
+#...........................................
 
 #trigger ex1
 
@@ -202,6 +207,8 @@ END
 """
 mycursor.execute(trigger_query)
 
+#...........................................
+
 #examination_schedule
 
 s_num = input("Enter your student number: ")
@@ -214,6 +221,7 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 
+#...........................................
 
 #reserve food
 
@@ -231,6 +239,7 @@ insert_query = f"UPDATE food_reservation SET reserved = 1 WHERE food_reservation
 
 print("food: " + req + " reserved.")
 
+#...........................................
 
 # delete food
 
@@ -250,6 +259,7 @@ insert_query = f"UPDATE food_reservation SET reserved = '0' WHERE food_reservati
 
 print("food: " + req2 + " deleted.")
 
+#...........................................
 
 #extra1
 
@@ -261,17 +271,19 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 
+#...........................................
+
 #extra2
 
-select_query = "SELECT examination_schedule.course_ename,examination_schedule.exam_day from examination_schedule where examination_schedule.exam_day < 10 "
+c_num = input("Enter your room number: ")
+
+select_query = f"SELECT examination_schedule.course_ename,examination_schedule.exam_day,examination_schedule.exam_time from examination_schedule where examination_schedule.class = '{c_num}' "
 mycursor.execute(select_query)
 
 result = mycursor.fetchall()
 
 for row in result:
   print(row)
-
-
 
 
 #/elaheh_rezapanah
@@ -423,7 +435,8 @@ result - mycursor.fetchall()
 for row in result:
     print(row)
 
-#########################################
+#...........................................
+
 # view ex4_p
 view_query = "CREATE VIEW ex4_p AS SELECT class.class_number class_number FROM class WHERE class.class_time <> 8"
 mycursor.execute(view_query)
@@ -435,7 +448,9 @@ result - mycursor.fetchall()
 
 for row in result:
     print(row)
-########################################
+
+#...........................................
+
 # view view2_p
 view_query = "CREATE VIEW view2_p AS SELECT course.course_name course_name FROM course,student WHERE((student.student_number = 99127620) AND (course.course_status = passed) AND (course.select_unit_course_sgroup = student.select_unit_course_sgroup))"
 mycursor.execute(view_query)
@@ -447,7 +462,9 @@ result - mycursor.fetchall()
 
 for row in result:
     print(row)
-#############################
+  
+#...........................................
+
 #trigger4_p
 trigger_query = """
 CREATE TRIGGER trigger4_p AFTER INSERT ON select_unit FOR EACH ROW BEGIN
@@ -456,7 +473,9 @@ set new.student.passed_courses = student.passed_courses + (select number_of_cour
 END
 """
 mycursor.execute(triggerr_query)
-###############################
+
+#...........................................
+
 #presence
 s_num = input("Enter your student number: ")
 
@@ -467,7 +486,9 @@ result = mycursor.fetchall()
 
 for row in result:
   print(row)
-####################################
+  
+#...........................................
+
 #assessment
 s_num = input("Enter your student number: ")
 if assessment.assessmentstate == 0 and assessment.student_student_number == {s_num}:
@@ -478,7 +499,7 @@ elif
     course_grade = input("get grade : ")
     insert into assessment(grade) Values (course_grade);
     print(Done)
-########################################
+#...........................................
 
 #ex_professor_information 
 p_num = input("enter professor name : ")
@@ -490,7 +511,7 @@ result = mycursor.fetchall()
 for row in result:
     print(row)
     
-#######################################
+#...........................................
 
 #ex_absence_student
 s_nam = input("Enter student number: ")
