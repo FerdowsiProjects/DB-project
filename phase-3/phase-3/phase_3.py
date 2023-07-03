@@ -41,6 +41,23 @@ result - mycursor.fetchall()
 for row in result:
     print(row)
 
+#------------------------------------------------
+#trigger 1
+
+trigger_query = ""
+CREATE TRIGGER trigger1_p AFTER UPDATE ON course FOR EACH ROW BEGIN
+update course_state
+set GPA = (course.averege + ((SELECT GPA FROM student.course WHERE course.student_student_number =  student.student_number) * unit_number ))/( student.unit_number + 1) AND course.unit_number = course.unit_number + 1
+WHERE  course_state = 'passt';
+END
+""
+mycursor.execute(triggerr_query)
+
+#------------------------------------------------
+
+
+
+
 #/zahra_rostami
 
 #view1
