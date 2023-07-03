@@ -1,3 +1,6 @@
+//phase3
+
+//connect to database
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -8,5 +11,18 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-
 print(mydb)
+
+//fatemeh_aalami
+
+//zahra_rostami
+
+//elaheh_rezapanah
+
+//somayeh_ghorbani
+
+//commit to database and close
+mydb.commit()
+
+mycursor.close()
+mydb.close()
