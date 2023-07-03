@@ -259,6 +259,18 @@ for row in result:
     print(row)
 
 
+# view ex4_p
+view_query = "CREATE VIEW classtime SELECT class.class_number class_number FROM class WHERE class.class_time <> 8"
+mycursor.execute(view_query)
+
+select_query = "SELECT * FROM viewex4_p"
+mycursor.execute(select_query)
+
+result - mycursor.fetchall()
+
+for row in result:
+    print(row)
+
 #commit to database and close
 mydb.commit()
 
