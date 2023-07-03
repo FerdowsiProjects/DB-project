@@ -55,6 +55,21 @@ mycursor.execute(triggerr_query)
 
 #------------------------------------------------
 
+#trigger ex 2
+
+trigger_query = ""
+CREATE TRIGGER ex2_p AFTER_UPDATE  ON student_work FOR EACH ROW BEGIN
+
+if old.work_time <> new.work_time
+then update student_work 
+set student_work.salary = student_work.work_time * 5;
+end if;
+END
+""
+
+mycursor.execute(triggerr_query)
+
+#------------------------------------------------
 
 
 
