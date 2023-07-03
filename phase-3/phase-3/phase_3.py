@@ -134,6 +134,18 @@ result = mycursor.fetchall()
 for row in result:
     print(row)
 
+#------------------------------------------------
+
+# electronic_payment
+
+s_num = input("enter student number : ")
+select_query = f"SELECT reason,amount,date_of_payment,time_of_payment,receipt_number FROM electronic_payment WHERE student_student_number = {s_num}"
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
+
+#------------------------------------------------
 
 #/zahra_rostami
 
