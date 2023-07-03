@@ -30,7 +30,7 @@ for row in result:
 #------------------------------------------------
 
 # view 6
-view-query = "CREATE VIEW view6_p AS SELECT DISTINCT course.course_name, avg(course.average) FROM course GROUP BY cuorse.course_name ORDER BY AVG (course.average) DESC"
+view-query = "CREATE VIEW view6_p AS SELECT DISTINCT course.course_name, avg(course.average) FROM course GROUP BY cuorse.course_name ORDER BY AVG (course.grade) DESC"
 mycursor.execute(view_query)
 
 select_query = "SELECT * FROM view6_p"
