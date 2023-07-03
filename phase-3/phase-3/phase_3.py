@@ -172,6 +172,20 @@ END
 """
 mycursor.execute(trigger_query)
 
+#examination_schedule
+
+view_query = "create view es_p as select examination_schedule.course_ename,examination_schedule.professor_ename,examination_schedule.exam_day,examination_schedule.exam_time,examination_schedule.exam_date,examination_schedule.class,examination_schedule.seat_number from examination_schedule where examination_schedule.student_student_number = '40012627' "
+mycursor.execute(view_query)
+
+select_query = "select * from es_p"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+
+for row in result:
+  print(row)
+
+
 #/elaheh_rezapanah
 
 # view4
