@@ -334,6 +334,19 @@ set new.student.passed_courses = student.passed_courses + (select number_of_cour
 END
 """
 mycursor.execute(triggerr_query)
+###############################
+#presence
+s_num = input("Enter your student number: ")
+
+select_query = f"SELECT presence.course_pname,presence.professor,presence.number_of_sessions,presence.number_of_absences,presence.number_of_excused_absences FROM presence where presence.student_student_number = '{s_num}'"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+
+for row in result:
+  print(row)
+####################################
+
 
 #commit to database and close
 mydb.commit()
