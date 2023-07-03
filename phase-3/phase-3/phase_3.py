@@ -246,6 +246,19 @@ mycursor.execute(trigger_query)
 
 #/somayeh_ghorbani
 
+# view ex3_p
+view_query = "CREATE VIEW bookreservation  SELECT book.book_name FROM book WHERE book.treasury = b2"
+mycursor.execute(view_query)
+
+select_query = "SELECT * FROM viewex3_p"
+mycursor.execute(select_query)
+
+result - mycursor.fetchall()
+
+for row in result:
+    print(row)
+
+
 #commit to database and close
 mydb.commit()
 
