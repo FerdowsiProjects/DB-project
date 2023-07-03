@@ -134,6 +134,40 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 
+# trigger3
+trigger_query = """
+CREATE TRIGGER trigger3_p
+AFTER UPDATE ON report_card FOR EACH ROW
+BEGIN
+if report_card.dig_signature = 1 then
+update student
+set new.student.passed_courses = old.student.passed_courses + ( select number_of_course from course where course.course_name = report_card.course_rname);
+end if;
+END
+"""
+mycursor.execute(trigger_query)
+
+# trigger5-1
+trigger_query = """
+CREATE TRIGGER trigger5_p
+BEFORE INSERT ON drop_course FOR EACH ROW BEGIN
+update examination_schedule
+set  course_eid = NULL ,course_ename = NULL ,professor_ename = NULL ,exam_day = NULL ,exam_time = NULL ,exam_date = NULL ,class = NULL ,seat_number = NULL ,student_student_number = NULL ,student_examination_schedule_course_eid = NULL ,student_class_schedule_course_cid = NULL
+where drop_course.course_did = examination_schedule.course_eid;
+END
+"""
+mycursor.execute(trigger_query)
+
+# trigger5-2
+trigger_query = """
+CREATE TRIGGER trigger52_p
+AFTER INSERT ON select_unit FOR EACH ROW BEGIN
+insert examination_schedule
+ set   examination_schedule.course_ename = select_unit.course_name;
+END
+"""
+mycursor.execute(trigger_query)
+
 #/somayeh_ghorbani
 
 #commit to database and close
