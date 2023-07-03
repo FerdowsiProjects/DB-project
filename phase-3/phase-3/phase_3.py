@@ -469,6 +469,17 @@ elif
     print(Done)
 ########################################
 
+#ex_professor_information 
+p_num = input("enter professor name : ")
+select_query = f"SELECT * FROM professor WHERE professor.professorr_name = {p_num}"
+
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
+    
+#######################################
 
 #commit to database and close
 mydb.commit()
