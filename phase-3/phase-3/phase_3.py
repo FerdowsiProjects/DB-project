@@ -16,7 +16,7 @@ print(mydb)
 #/fatemeh_aalami
 
 # view 3
-view-query = "CREATE VIEW view3_p AS SELECT DISTINCT student.student_number , student.student_name FROM student WHERE student.GPA <= 17 GROUP BY student.entering_year"
+view-query = "CREATE VIEW view3_p AS SELECT DISTINCT student.student_number , student.student_name FROM student WHERE student.GPA >= 17 GROUP BY student.entering_year"
 mycursor.execute(view_query)
 
 select_query = "SELECT * FROM view3_p"
