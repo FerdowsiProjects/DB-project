@@ -253,6 +253,8 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 
+#...........................................
+
 # view ex1
 view_query = "CREATE VIEW ex1_p AS SELECT food.food_name FROM food,student WHERE student.student_name = 'elaheh_rezapanah' AND student.financial_balance >= food.price"
 mycursor.execute(view_query)
@@ -264,6 +266,8 @@ result = mycursor.fetchall()
 
 for row in result:
   print(row)
+
+#...........................................
 
 # view ex2
 view_query = "CREATE VIEW ex2_p AS SELECT course_rname,rgrade FROM report_card,student WHERE student.student_number = report_card.student_student_number AND report_card.rgrade >= 10"
@@ -290,6 +294,8 @@ END
 """
 mycursor.execute(trigger_query)
 
+#...........................................
+
 # trigger5-1
 trigger_query = """
 CREATE TRIGGER trigger5_p
@@ -301,6 +307,8 @@ END
 """
 mycursor.execute(trigger_query)
 
+#...........................................
+
 # trigger5-2
 trigger_query = """
 CREATE TRIGGER trigger52_p
@@ -310,6 +318,8 @@ insert examination_schedule
 END
 """
 mycursor.execute(trigger_query)
+
+#...........................................
 
 # class schedule
 table_name = "class_schedule"
@@ -321,6 +331,8 @@ mycursor.execute(select_query)
 result = mycursor.fetchall()
 for row in result:
     print(row)
+
+#...........................................
 
 #course
 table_name1 = "course"
@@ -334,6 +346,8 @@ result = mycursor.fetchall()
 for row in result:
     print(row)
 
+#...........................................
+
 # ex_exam time
 table_name1 = "examination_schedule"
 s_num = input("ٍEnter Student number: ")
@@ -346,9 +360,10 @@ result = mycursor.fetchall()
 for row in result:
     print(row)
 
+#...........................................
+
 #/somayeh_ghorbani
 
-######################################
 # view ex3_p
 view_query = "CREATE VIEW ex3_p AS SELECT book.book_name FROM book WHERE book.treasury = b2"
 mycursor.execute(view_query)
