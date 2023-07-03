@@ -266,8 +266,10 @@ END
 """
 mycursor.execute(trigger_query)
 
+
 #/somayeh_ghorbani
 
+######################################
 # view ex3_p
 view_query = "CREATE VIEW ex3_p AS SELECT book.book_name FROM book WHERE book.treasury = b2"
 mycursor.execute(view_query)
@@ -280,7 +282,7 @@ result - mycursor.fetchall()
 for row in result:
     print(row)
 
-
+#########################################
 # view ex4_p
 view_query = "CREATE VIEW ex4_p AS SELECT class.class_number class_number FROM class WHERE class.class_time <> 8"
 mycursor.execute(view_query)
@@ -292,7 +294,7 @@ result - mycursor.fetchall()
 
 for row in result:
     print(row)
-
+########################################
 # view view2_p
 view_query = "CREATE VIEW view2_p AS SELECT course.course_name course_name FROM course,student WHERE((student.student_number = 99127620) AND (course.course_status = passed) AND (course.select_unit_course_sgroup = student.select_unit_course_sgroup))"
 mycursor.execute(view_query)
@@ -304,7 +306,15 @@ result - mycursor.fetchall()
 
 for row in result:
     print(row)
-
+#############################
+#trigger4_p
+trigger_query = """
+CREATE TRIGGER trigger4_p AFTER INSERT ON select_unit FOR EACH ROW BEGIN
+update student
+set new.student.passed_courses = student.passed_courses + (select number_of_course from course,select_unit where course.course_name = select_unit.course_name);
+END
+"""
+mycursor.execute(triggerr_query)
 
 #commit to database and close
 mydb.commit()
