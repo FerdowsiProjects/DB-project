@@ -203,6 +203,42 @@ for row in result:
   print(row)
 
 
+#reserve food
+
+select_query = "SELECT food.food_id,food.food_name,food.price from food"
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+
+for row in result:
+  print(row)
+
+req = input("Which food do you want? ")
+
+insert_query = f"UPDATE food_reservation SET reserved = 1 WHERE food_reservation.reserve_fid = '{req}'"
+
+print("food: " + req + " reserved.")
+
+
+# delete food
+
+print("reserved food")
+
+select_query = "SELECT food.food_id,food.food_name from food,food_reservation where food_reservation.reserve_fid = food.food_id and food_reservation.reserved = 1 "
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+
+for row in result:
+  print(row)
+
+req2 = input("Which food do you want to delete? ")
+
+insert_query = f"UPDATE food_reservation SET reserved = '0' WHERE food_reservation.reserve_fid = '{req2}'"
+
+print("food: " + req2 + " deleted.")
+
+
 #/elaheh_rezapanah
 
 # view4
