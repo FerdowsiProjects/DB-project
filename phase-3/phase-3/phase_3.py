@@ -504,5 +504,7 @@ for row in result:
 #commit to database and close
 mydb.commit()
 
+
+
 mycursor.close()
 mydb.close()
