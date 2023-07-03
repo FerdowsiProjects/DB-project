@@ -438,7 +438,7 @@ for row in result:
 #...........................................
 
 # view ex4_p
-view_query = "CREATE VIEW ex4_p AS SELECT class.class_number class_number FROM class WHERE class.class_time <> 8"
+view_query = "CREATE VIEW ex4_p AS SELECT class.class_number FROM class WHERE class.class_time <> 8"
 mycursor.execute(view_query)
 
 select_query = "SELECT * FROM viewex4_p"
