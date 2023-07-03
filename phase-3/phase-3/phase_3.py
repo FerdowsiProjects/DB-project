@@ -15,6 +15,32 @@ print(mydb)
 
 #/fatemeh_aalami
 
+# view 3
+view-query = "CREATE VIEW view3_p AS SELECT DISTINCT student.student_number , student.student_name FROM student WHERE student.GPA <= 17 GROUP BY student.entering_year"
+mycursor.execute(view_query)
+
+select_query = "SELECT * FROM view3_p"
+mycursor.execute(select_query)
+
+result - mycursor.fetchall()
+
+for row in result:
+    print(row)
+
+#------------------------------------------------
+
+# view 6
+view-query = "CREATE VIEW view6_p AS SELECT DISTINCT course.course_name, avg(course.average) FROM course GROUP BY cuorse.course_name ORDER BY AVG (course.average) DESC"
+mycursor.execute(view_query)
+
+select_query = "SELECT * FROM view6_p"
+mycursor.execute(select_query)
+
+result - mycursor.fetchall()
+
+for row in result:
+    print(row)
+
 #/zahra_rostami
 
 #/elaheh_rezapanah
