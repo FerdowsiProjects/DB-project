@@ -89,7 +89,33 @@ for row in result:
 
 #------------------------------------------------
 
+# edit
 
+table_name1 = "student"
+edit = input ("which item  do you want to edit?  student_name , phon_number , address , Email , exit : ")
+
+while edit != exit :
+    if edit = "student_name" :
+    value = input ("enter student_name now : ")
+    select_query = (f"UPDATE '{table_name1}' SET student.student_name = value")
+    else if edit = "phon_number" :
+    values = input ("enter phon_number now : ")
+    select_query = (f"UPDATE '{table_name1}' SET student.phon_number = value")
+    else if edit = "address" :
+    values = input ("enter address now : ")
+    select_query = (f"UPDATE '{table_name1}' SET student.address = value")
+    else if edit = "Email" :
+    values = input ("enter Email now : ")
+    select_query = (f"UPDATE '{table_name1}' SET student.Email = value")
+    else :
+    print("input warning !!!")
+
+
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
 
 #/zahra_rostami
 
