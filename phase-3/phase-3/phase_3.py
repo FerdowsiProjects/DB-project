@@ -44,20 +44,20 @@ for row in result:
 #------------------------------------------------
 #trigger 1
 
-trigger_query = ""
+trigger_query = """
 CREATE TRIGGER trigger1_p AFTER UPDATE ON course FOR EACH ROW BEGIN
 update course_state
 set GPA = (course.averege + ((SELECT GPA FROM student.course WHERE course.student_student_number =  student.student_number) * unit_number ))/( student.unit_number + 1) AND course.unit_number = course.unit_number + 1
 WHERE  course_state = 'passt';
 END
-""
+"""
 mycursor.execute(triggerr_query)
 
 #------------------------------------------------
 
 #trigger ex 2
 
-trigger_query = ""
+trigger_query = """
 CREATE TRIGGER ex2_p AFTER_UPDATE  ON student_work FOR EACH ROW BEGIN
 
 if old.work_time <> new.work_time
@@ -65,12 +65,11 @@ then update student_work
 set student_work.salary = student_work.work_time * 5;
 end if;
 END
-""
+"""
 
 mycursor.execute(triggerr_query)
 
 #------------------------------------------------
-
 
 # report card
 table_name1 = "course"
@@ -79,7 +78,7 @@ table_name3 = "report_card"
 
 s_num = input("enter student number : ")
 
-select_query = f"SELECT course.course_name,report_card.rgrade FROM  '{table_name1}','{table_name2}', '{table_name3}' WHERE course.student_student_number = '{s_num }'"
+select_query = f"SELECT course.course_name,report_card.rgrade FROM  {table_name1},{table_name2}, {table_name3} WHERE course.student_student_number = {s_num }"
 
 mycursor.execute(select_query)
 
@@ -92,30 +91,39 @@ for row in result:
 # edit
 
 table_name1 = "student"
-edit = input ("which item  do you want to edit?  student_name , phon_number , address , Email , exit : ")
+s_num = input("enter student number : ")
 
-while edit != exit :
-    if edit = "student_name" :
-    value = input ("enter student_name now : ")
-    select_query = (f"UPDATE '{table_name1}' SET student.student_name = value")
-    else if edit = "phon_number" :
-    values = input ("enter phon_number now : ")
-    select_query = (f"UPDATE '{table_name1}' SET student.phon_number = value")
-    else if edit = "address" :
-    values = input ("enter address now : ")
-    select_query = (f"UPDATE '{table_name1}' SET student.address = value")
-    else if edit = "Email" :
-    values = input ("enter Email now : ")
-    select_query = (f"UPDATE '{table_name1}' SET student.Email = value")
-    else :
-    print("input warning !!!")
+while True:
+    edit = input("Which item do you want to edit? student_name, phone_number, address, Email, exit: ")
 
+    if edit == "exit":
+        break
+    elif edit == "student_name":
+        value = input("Enter student_name: ")
+        select_query = f"UPDATE {table_name1} SET student_name = '{value}' WHERE student.student_number = {s_num}"
+        print("successful")
+    elif edit == "phone_number":
+        value = input("Enter phone_number: ")
+        select_query = f"UPDATE {table_name1} SET phone_number = '{value}' WHERE student.student_number = {s_num}"
+        print("successful")
+    elif edit == "address":
+        value = input("Enter address: ")
+        select_query = f"UPDATE {table_name1} SET address = '{value}' WHERE student.student_number = {s_num}"
+        print("successful")
+    elif edit == "Email":
+        value = input("Enter Email: ")
+        select_query = f"UPDATE {table_name1} SET Email = '{value}'WHERE student.student_number = {s_num}"
+        print("successful")
+    else:
+        print("Input warning !!!")
+        continue
 
-mycursor.execute(select_query)
+    mycursor.execute(select_query)
 
-result = mycursor.fetchall()
-for row in result:
-    print(row)
+    result = mycursor.fetchall()
+    for row in result:
+        print(row)
+
 
 #/zahra_rostami
 
