@@ -362,7 +362,7 @@ mycursor.execute(triggerr_query)
 #presence
 s_num = input("Enter your student number: ")
 
-select_query = f"SELECT presence.course_pname,presence.professor,presence.number_of_sessions,presence.number_of_absences,presence.number_of_excused_absences FROM presence where presence.student_student_number = '{s_num}'"
+select_query = f"SELECT presence.course_pname,presence.professor,presence.number_of_sessions,presence.number_of_absences,presence.number_of_excused_absences FROM presence where presence.student_student_number = {s_num}"
 mycursor.execute(select_query)
 
 result = mycursor.fetchall()
@@ -380,6 +380,8 @@ elif
     course_grade = input("get grade : ")
     insert into assessment(grade) Values (course_grade);
     print(Done)
+########################################
+
 
 #commit to database and close
 mydb.commit()
