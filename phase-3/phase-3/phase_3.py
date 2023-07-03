@@ -293,6 +293,18 @@ result - mycursor.fetchall()
 for row in result:
     print(row)
 
+# view view2_p
+view_query = "CREATE VIEW view2_p AS SELECT course.course_name course_name FROM course,student WHERE((student.student_number = 99127620) AND (course.course_status = passed) AND (course.select_unit_course_sgroup = student.select_unit_course_sgroup))"
+mycursor.execute(view_query)
+
+select_query = "SELECT * FROM view2_p"
+mycursor.execute(select_query)
+
+result - mycursor.fetchall()
+
+for row in result:
+    print(row)
+
 
 #commit to database and close
 mydb.commit()
