@@ -72,6 +72,24 @@ mycursor.execute(triggerr_query)
 #------------------------------------------------
 
 
+# report card
+table_name1 = "course"
+table_name2 = "student"
+table_name3 = "report_card"
+
+s_num = input("enter student number : ")
+
+select_query = f"SELECT course.course_name,report_card.rgrade FROM  '{table_name1}','{table_name2}', '{table_name3}' WHERE course.student_student_number = '{s_num }'"
+
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
+
+#------------------------------------------------
+
+
 
 #/zahra_rostami
 
