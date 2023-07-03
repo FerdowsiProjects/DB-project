@@ -374,6 +374,18 @@ for row in result:
 
 #...........................................
 
+# ex_remaining units
+s_num = input("ٍEnter Student number: ")
+
+select_query = f"SELECT student.passed_courses FROM student where student.student_number = '{s_num}'"
+mycursor.execute(select_query)
+
+result = mycursor.fetchone()
+remaining_units = 140 - result[0]
+print("You have " + str(remaining_units) + " remaining units")
+
+#...........................................
+
 #/somayeh_ghorbani
 
 # view ex3_p
