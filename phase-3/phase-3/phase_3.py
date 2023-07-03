@@ -269,7 +269,7 @@ mycursor.execute(trigger_query)
 #/somayeh_ghorbani
 
 # view ex3_p
-view_query = "CREATE VIEW bookreservation  SELECT book.book_name FROM book WHERE book.treasury = b2"
+view_query = "CREATE VIEW ex3_p AS SELECT book.book_name FROM book WHERE book.treasury = b2"
 mycursor.execute(view_query)
 
 select_query = "SELECT * FROM viewex3_p"
@@ -282,7 +282,7 @@ for row in result:
 
 
 # view ex4_p
-view_query = "CREATE VIEW classtime SELECT class.class_number class_number FROM class WHERE class.class_time <> 8"
+view_query = "CREATE VIEW ex4_p AS SELECT class.class_number class_number FROM class WHERE class.class_time <> 8"
 mycursor.execute(view_query)
 
 select_query = "SELECT * FROM viewex4_p"
@@ -292,6 +292,7 @@ result - mycursor.fetchall()
 
 for row in result:
     print(row)
+
 
 #commit to database and close
 mydb.commit()
