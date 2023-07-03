@@ -123,7 +123,7 @@ while True:
 
 #------------------------------------------------
 
-#information student
+# ex_information student
 
 s_num = input("enter student number : ")
 select_query = f"SELECT * FROM student WHERE student.student_number = {s_num}"
