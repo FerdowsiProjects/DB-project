@@ -123,7 +123,7 @@ while True:
 
 #------------------------------------------------
 
-# ex_information student
+# ex1_information student
 
 s_num = input("enter student number : ")
 select_query = f"SELECT * FROM student WHERE student.student_number = {s_num}"
@@ -136,7 +136,7 @@ for row in result:
 
 #------------------------------------------------
 
-# electronic_payment
+# ex2_electronic_payment
 
 s_num = input("enter student number : ")
 select_query = f"SELECT reason,amount,date_of_payment,time_of_payment,receipt_number FROM electronic_payment WHERE student_student_number = {s_num}"
