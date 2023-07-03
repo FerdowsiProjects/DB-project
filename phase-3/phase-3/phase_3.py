@@ -481,6 +481,15 @@ for row in result:
     
 #######################################
 
+#absence_student
+s_nam = input("Enter student number: ")
+select_query = f"SELECT number_of_absences, presence.number_of_excused_absences,student_student_number FROM presence WHERE student.student_number = {s_num} and presence.number_of_absences > presence.number_of_excused_absences " 
+
+mycursor.execute(select_query)
+
+result = mycursor.fetchall()
+for row in result:
+    print(row)
 #commit to database and close
 mydb.commit()
 
