@@ -370,7 +370,16 @@ result = mycursor.fetchall()
 for row in result:
   print(row)
 ####################################
-
+#assessment
+s_num = input("Enter your student number: ")
+if assessment.assessmentstate == 0 and assessment.student_student_number == {s_num}:
+    print ("The evaluation is complete")
+    
+elif 
+    no_complete = input("get course aname : ")
+    course_grade = input("get grade : ")
+    insert into assessment(grade) Values (course_grade);
+    print(Done)
 
 #commit to database and close
 mydb.commit()
